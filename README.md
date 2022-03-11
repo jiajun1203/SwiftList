@@ -6,5 +6,5 @@
 
 ***
 
-<img src="https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true" width="260" height="563" alt=" "/><br/>
+<img src="https://github.com/jiajun1203/SwiftList/blob/main/all.gif?raw=true" width="260" height="563" alt=" "/><br/>
 <img src="https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true" width="260" height="563" alt=" "/><br/>
