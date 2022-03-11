@@ -6,8 +6,5 @@
 
 ***
 
-![](https://github.com/jiajun1203/SwiftList/blob/main/all.gif?raw=true)
-
-![](https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true)
-
-<iframe src="https://github.com/jiajun1203/SwiftList/blob/main/look.mp4?raw=true" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  width="700px" height="472px"> </iframe>
+<img src="https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true" width="260" height="563" alt=" "/><br/>
+<img src="https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true" width="260" height="563" alt=" "/><br/>
