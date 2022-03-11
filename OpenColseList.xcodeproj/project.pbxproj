@@ -16,6 +16,9 @@
 		65DE5FC427DB7483001D9F03 /* OpenColseListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FC327DB7483001D9F03 /* OpenColseListTests.swift */; };
 		65DE5FCE27DB7483001D9F03 /* OpenColseListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FCD27DB7483001D9F03 /* OpenColseListUITests.swift */; };
 		65DE5FD027DB7483001D9F03 /* OpenColseListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FCF27DB7483001D9F03 /* OpenColseListUITestsLaunchTests.swift */; };
+		65DE5FE227DB77C7001D9F03 /* MRC_ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FE027DB77C7001D9F03 /* MRC_ItemCell.swift */; };
+		65DE5FE327DB77C7001D9F03 /* MRC_ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DE5FE127DB77C7001D9F03 /* MRC_ItemCell.xib */; };
+		65DE5FE527DB77DB001D9F03 /* MRC_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FE427DB77DB001D9F03 /* MRC_Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		65DE5FC927DB7483001D9F03 /* OpenColseListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenColseListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DE5FCD27DB7483001D9F03 /* OpenColseListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenColseListUITests.swift; sourceTree = "<group>"; };
 		65DE5FCF27DB7483001D9F03 /* OpenColseListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenColseListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		65DE5FE027DB77C7001D9F03 /* MRC_ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRC_ItemCell.swift; sourceTree = "<group>"; };
+		65DE5FE127DB77C7001D9F03 /* MRC_ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MRC_ItemCell.xib; sourceTree = "<group>"; };
+		65DE5FE427DB77DB001D9F03 /* MRC_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRC_Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,8 @@
 				65DE5FAC27DB7481001D9F03 /* AppDelegate.swift */,
 				65DE5FAE27DB7481001D9F03 /* SceneDelegate.swift */,
 				65DE5FB027DB7481001D9F03 /* ViewController.swift */,
+				65DE5FDF27DB7795001D9F03 /* view */,
+				65DE5FDC27DB774D001D9F03 /* model */,
 				65DE5FB227DB7481001D9F03 /* Main.storyboard */,
 				65DE5FB527DB7483001D9F03 /* Assets.xcassets */,
 				65DE5FB727DB7483001D9F03 /* LaunchScreen.storyboard */,
@@ -125,6 +133,23 @@
 				65DE5FCF27DB7483001D9F03 /* OpenColseListUITestsLaunchTests.swift */,
 			);
 			path = OpenColseListUITests;
+			sourceTree = "<group>";
+		};
+		65DE5FDC27DB774D001D9F03 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				65DE5FE427DB77DB001D9F03 /* MRC_Model.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		65DE5FDF27DB7795001D9F03 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				65DE5FE027DB77C7001D9F03 /* MRC_ItemCell.swift */,
+				65DE5FE127DB77C7001D9F03 /* MRC_ItemCell.xib */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DE5FB927DB7483001D9F03 /* LaunchScreen.storyboard in Resources */,
+				65DE5FE327DB77C7001D9F03 /* MRC_ItemCell.xib in Resources */,
 				65DE5FB627DB7483001D9F03 /* Assets.xcassets in Resources */,
 				65DE5FB427DB7481001D9F03 /* Main.storyboard in Resources */,
 			);
@@ -258,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65DE5FE527DB77DB001D9F03 /* MRC_Model.swift in Sources */,
 				65DE5FB127DB7481001D9F03 /* ViewController.swift in Sources */,
+				65DE5FE227DB77C7001D9F03 /* MRC_ItemCell.swift in Sources */,
 				65DE5FAD27DB7481001D9F03 /* AppDelegate.swift in Sources */,
 				65DE5FAF27DB7481001D9F03 /* SceneDelegate.swift in Sources */,
 			);
