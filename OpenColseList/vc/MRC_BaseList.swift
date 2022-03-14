@@ -1,85 +1,41 @@
 //
-//  ViewController.swift
+//  MRC_BaseList.swift
 //  OpenColseList
 //
-//  Created by William on 2022/3/11.
+//  Created by 陈征征 on 2022/3/14.
 //
 
-
-/**
-            超轻量级列表开合,主要通过2个方法来操作数据, 2个方法来确定动画cell
-            使用时只要保持model中前三个属性不变, 而子列表属性替换为自己定义即可。
-                
-            代码量极少,使用极其方便,               ***欢迎star***
-            QQ群 :   939394226
- */
+import Foundation
 import UIKit
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    @IBOutlet weak var baseTbv: UITableView!
-
-    var baseModel : MRC_ItemModel!
-    var arr_AnimationCell : [Int] = Array()     //要做展开或闭合动画的index数组
-    var baseArr : [Any] = []
+class MRC_BaseList : UIViewController{
     
+    var baseModel : MRC_ItemModel!              //第一层model
+    var arr_AnimationCell : [Int] = Array()     //要做展开或闭合动画的index数组
+    var baseArr : [Any] = []                    //数据数组
+    var isShowEmptyCell : Bool = true           //没有子层时,是否展示空cell
+    weak var baseTbv : UITableView!             //tableview
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.navigationItem.title = "开合列表"
+    
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "继承Vc", style: .plain, target: self, action: #selector(gotoNextVc))
-        
-        self.baseModel = MRC_ItemModel()
-        self.baseModel.initSubs()
-        
-        self.baseTbv.delegate = self
-        self.baseTbv.dataSource = self
-        self.baseTbv.register(UINib.init(nibName: "MRC_ItemCell", bundle: nil), forCellReuseIdentifier: "MRC_ItemCell")
-        
-        self.baseArr.append(self.baseModel)
     }
     
-    @objc func gotoNextVc(){
-        self.navigationController?.pushViewController(MRC_InheritVc(), animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = self.baseArr[indexPath.row] as! MRC_ItemModel
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MRC_ItemCell") as! MRC_ItemCell
-        cell.lead_Space.constant = CGFloat((model.tier > 1 ? 20 : 15) * model.tier)
-        cell.lab_Title.text = model.title
-        cell.imgv_Left.transform = .identity
-        
-        if model.isAlert{
-            cell.imgv_Left.image = .init(named: "gantanhao")
-            cell.lab_Title.font = UIFont.systemFont(ofSize: 15)
-            cell.lab_Title.textColor = UIColor.lightGray
-        }else{
-            cell.imgv_Left.image = .init(named: "arrow_Right")
-            cell.lab_Title.font = UIFont.systemFont(ofSize: 16)
-            cell.lab_Title.textColor = UIColor.black
-            
-            if model.isOpen == true{
-                cell.imgv_Left.transform = cell.imgv_Left.transform.rotated(by: CGFloat(Double.pi/2.0))
-            }
+    func resetImageArrow(view : UIView,model:MRC_ItemModel){
+        view.transform = .identity
+        if model.isAlert == false &&
+           model.isOpen == true{
+            view.transform = view.transform.rotated(by: CGFloat(Double.pi/2.0))
         }
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.baseArr.count
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MRC_ItemCell
-        let model = self.baseArr[indexPath.row] as! MRC_ItemModel
-        
+    func didSelect_ItemWithModel(model : MRC_ItemModel,cell : MRC_ItemCell){
         //如果当前层是末层提示层,直接返回
         if model.isAlert{
+            return
+        }
+        if self.isShowEmptyCell == false &&
+            model.items.count == 0{
             return
         }
         //展开闭合箭头动画
@@ -101,8 +57,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.baseArr.removeAll{arr.contains($0 as! MRC_ItemModel)}
         }else{
             
-            #warning("如果子层没有需要提示,添加这段话")
-            if model.items.count == 0{
+            if (model.items.count == 0 &&
+                isShowEmptyCell == true){
                 let alert = MRC_ItemModel()
                 alert.isAlert = true
                 alert.title = "没有更多了"
@@ -135,8 +91,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.baseTbv.reloadData()
         }
     }
-    
-    #warning("主要通过下面4个方法控制列表开合,修改请留意")
     
     //确定当前列表数量
     func getCurrentListCount(model : MRC_ItemModel){
@@ -184,5 +138,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
     }
+    
 }
-

@@ -10,7 +10,7 @@ class MRC_ItemModel : NSObject{
     // 主要参数 ,去掉会导致列表开合出错
     var isOpen : Bool = false           //当前是否为展开状态
     var isShowAnimation : Bool = false  //与当前模型对应cell是否要做开合动画
-    var isAlert : Bool = false          //  没有下级时的提示状态
+    var isAlert : Bool = false          //  是否为提示model
     var items : [MRC_ItemModel] = []    //数据源,需要时改成自己的model类型即可,属性名称改成后台返回,全局搜索替换即OK
     
     //次要参数,去留无关紧要
