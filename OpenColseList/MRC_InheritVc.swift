@@ -24,11 +24,15 @@ class MRC_InheritVc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
         self.tableView.register(UINib.init(nibName: "MRC_ItemCell", bundle: nil), forCellReuseIdentifier: "MRC_ItemCell")
         
         self.isShowEmptyCell = true //是否在数据为空是展示空cell
+        
         //模型可继承,可替换,items 属性换为后台返回对应字段后,整类搜索替换
         self.baseModel = MRC_ItemModel()
         self.baseModel.initSubs()
-     
-        self.baseArr.append(self.baseModel!)
+        
+        //最顶级模型只是装有子模型的话，此处设置false，若要展示顶级模型，此处设置true
+        self.baseModel.topModelIsShow = false
+        
+        self.getCurrentListCount(model: self.baseModel)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

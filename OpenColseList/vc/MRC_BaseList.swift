@@ -94,7 +94,12 @@ class MRC_BaseList : UIViewController{
     
     //确定当前列表数量
     func getCurrentListCount(model : MRC_ItemModel){
-        self.baseArr.append(model)
+        if model.topModelIsShow == true{
+            self.baseArr.append(model)
+        }else{
+            model.isOpen = true
+        }
+        
         self.getSubModel(model: model)
     }
     

@@ -11,11 +11,12 @@ class MRC_ItemModel : NSObject{
     var isOpen : Bool = false           //当前是否为展开状态
     var isShowAnimation : Bool = false  //与当前模型对应cell是否要做开合动画
     var isAlert : Bool = false          //  是否为提示model
+    var topModelIsShow : Bool = false   //最顶级model是否展示（可能为后台返回装有子模型）
     var items : [MRC_ItemModel] = []    //数据源,需要时改成自己的model类型即可,属性名称改成后台返回,全局搜索替换即OK
     
     //次要参数,去留无关紧要
     var tier : Int = 1
-    var title : String? = "这是层级（1）"
+    var title : String? = "这是层级 1"
     var tag : NSInteger = 0
     
     
@@ -28,7 +29,7 @@ class MRC_ItemModel : NSObject{
                 let item = MRC_ItemModel()
                 item.tier = self.tier + 1
                 item.tag = item.tag + idx;
-                item.title = "这是层级（\(item.tier)currentValue->\(item.tag)）"
+                item.title = "这是层级 \(item.tier)（currentValue->\(item.tag)）"
                 item.initSubs()
                 self.items.append(item)
             }
