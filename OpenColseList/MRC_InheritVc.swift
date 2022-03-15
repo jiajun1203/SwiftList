@@ -2,7 +2,7 @@
 //  MRC_InheritVc.swift
 //  OpenColseList
 //
-//  Created by 陈征征 on 2022/3/14.
+//  Created by william on 2022/3/14.
 //
 
 import Foundation
