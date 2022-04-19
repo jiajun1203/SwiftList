@@ -47,7 +47,7 @@ class MRC_BaseList : UIViewController{
         cell.loadingStart()
         //此处开始请求处理，成功直接调用父类方法，失败取消加载动画即可
         weak var weakSelf = self
-        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+2) {
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+0.1) {
             DispatchQueue.main.async {
                 //数据加载完成
                 model.isLoading = false

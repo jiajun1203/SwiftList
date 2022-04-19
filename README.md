@@ -6,7 +6,7 @@
 
 顶级封装类MRC_BaseList，业务实现：↓  
 如若一次性加载全部数据，请参考MRC_InheritVc此demo类，
-若是逐层加载数据，请参考MRC_LoadingListVvc此demo类
+若是逐层加载数据，请参考MRC_LoadingListVvc此demo类，主动缓存每次已加载层级数据
 
 列表开合轻松实现
 
@@ -14,5 +14,6 @@
 
 ***
 
-<img src="https://github.com/jiajun1203/SwiftList/blob/main/all.gif?raw=true" width="260" height="563" alt=" "/><br/><img src="https://github.com/jiajun1203/SwiftList/blob/main/pic_1.png?raw=true" width="260" height="563" alt=" "/><br/>
+<br/><img src="https://upload-images.jianshu.io/upload_images/3448916-76a0dd0954ef6181.gif?imageMogr2/auto-orient/strip|imageView2/2/w/1170" width="260" height="563" alt=" "/><br/>
+
 
