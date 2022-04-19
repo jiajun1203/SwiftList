@@ -8,6 +8,7 @@
 import Foundation
 class MRC_ItemModel : NSObject{
     // 主要参数 ,去掉会导致列表开合出错
+    var isLoading : Bool = false        //model加载状态(避免多次请求加载)
     var isOpen : Bool = false           //当前是否为展开状态
     var isShowAnimation : Bool = false  //与当前模型对应cell是否要做开合动画
     var isAlert : Bool = false          //  是否为提示model

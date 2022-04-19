@@ -30,6 +30,10 @@ class MRC_BaseList : UIViewController{
     }
     
     func loadingProcess(model : MRC_ItemModel,cell : MRC_ItemCell){
+        if model.isLoading == true{
+            //加载中直接返回，不再继续处理
+            return
+        }
         if model.isOpen ||
             model.items.count > 0{
             //  如果已展开，直接交给父类处理
@@ -37,12 +41,16 @@ class MRC_BaseList : UIViewController{
             didSelect_ItemWithModel(model: model, cell: cell)
             return
         }
+        //设置加载状态为加载中
+        model.isLoading = true
         //开始加载动画
         cell.loadingStart()
         //此处开始请求处理，成功直接调用父类方法，失败取消加载动画即可
         weak var weakSelf = self
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+2) {
             DispatchQueue.main.async {
+                //数据加载完成
+                model.isLoading = false
                 //生成要展示的子层数据
                 model.testAddSubItem(currentTier: model.tier, count: 3)
                 //结束加载动画
