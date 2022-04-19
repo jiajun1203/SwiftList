@@ -1,18 +1,18 @@
 //
-//  MRC_InheritVc.swift
+//  MRC_LoadingLostVvc.swift
 //  OpenColseList
 //
-//  Created by william on 2022/3/14.
-//  一次请求返回所有数据（即父级包含子集数组‘一直往下级嵌套’）  逐级请求返回请参照 MRC_LoadingListVvc
+//  Created by mac on 2022/4/19.
+//  逐级请求加载模型（首次只获取一级model，点击加载下一级）  一次全部返回请参照  MRC_InheritVc
 
 import Foundation
 import UIKit
 
-class MRC_InheritVc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
+class MRC_LoadingListVvc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
     var tableView : UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "70代码完成开合列表"
         self.tableView = UITableView.init(frame: self.view.bounds)
         self.tableView.delegate = self
@@ -27,14 +27,12 @@ class MRC_InheritVc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
         
         //模型可继承,可替换,items 属性换为后台返回对应字段后,整类搜索替换
         self.baseModel = MRC_ItemModel()
-        self.baseModel.initSubs()
         
         //最顶级模型只是装有子模型的话，此处设置false，若要展示顶级模型(即包含子模型数组的model)，此处设置true
-        self.baseModel.topModelIsShow = false
+        self.baseModel.topModelIsShow = true
         
         self.getCurrentListCount(model: self.baseModel)
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.baseArr[indexPath.row] as! MRC_ItemModel
         let cell = tableView.dequeueReusableCell(withIdentifier: "MRC_ItemCell") as! MRC_ItemCell
@@ -62,7 +60,8 @@ class MRC_InheritVc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = self.baseArr[indexPath.row] as! MRC_ItemModel
         let cell = tableView.cellForRow(at: indexPath) as! MRC_ItemCell
-        didSelect_ItemWithModel(model: model, cell: cell)
+        //交于父类处理，请求在父类
+        loadingProcess(model: model, cell: cell)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
@@ -72,3 +71,4 @@ class MRC_InheritVc: MRC_BaseList,UITableViewDelegate,UITableViewDataSource {
        return self.baseArr.count
     }
 }
+

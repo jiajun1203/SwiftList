@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B3B12F280E4CE8004DEC16 /* MRC_LoadingListVvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3B12E280E4CE8004DEC16 /* MRC_LoadingListVvc.swift */; };
 		657844FE27DF6A2300837519 /* MRC_BaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657844FD27DF6A2200837519 /* MRC_BaseList.swift */; };
 		6578450227DF6F5000837519 /* MRC_InheritVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6578450127DF6F5000837519 /* MRC_InheritVc.swift */; };
 		65DE5FAD27DB7481001D9F03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5FAC27DB7481001D9F03 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04B3B12E280E4CE8004DEC16 /* MRC_LoadingListVvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRC_LoadingListVvc.swift; sourceTree = "<group>"; };
 		657844FD27DF6A2200837519 /* MRC_BaseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRC_BaseList.swift; sourceTree = "<group>"; };
 		6578450127DF6F5000837519 /* MRC_InheritVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MRC_InheritVc.swift; sourceTree = "<group>"; };
 		65DE5FA927DB7481001D9F03 /* OpenColseList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenColseList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				65DE5FAE27DB7481001D9F03 /* SceneDelegate.swift */,
 				65DE5FB027DB7481001D9F03 /* ViewController.swift */,
 				6578450127DF6F5000837519 /* MRC_InheritVc.swift */,
+				04B3B12E280E4CE8004DEC16 /* MRC_LoadingListVvc.swift */,
 				657844FC27DF69F400837519 /* vc */,
 				65DE5FDF27DB7795001D9F03 /* view */,
 				65DE5FDC27DB774D001D9F03 /* model */,
@@ -301,6 +304,7 @@
 				6578450227DF6F5000837519 /* MRC_InheritVc.swift in Sources */,
 				65DE5FE527DB77DB001D9F03 /* MRC_Model.swift in Sources */,
 				657844FE27DF6A2300837519 /* MRC_BaseList.swift in Sources */,
+				04B3B12F280E4CE8004DEC16 /* MRC_LoadingListVvc.swift in Sources */,
 				65DE5FB127DB7481001D9F03 /* ViewController.swift in Sources */,
 				65DE5FE227DB77C7001D9F03 /* MRC_ItemCell.swift in Sources */,
 				65DE5FAD27DB7481001D9F03 /* AppDelegate.swift in Sources */,

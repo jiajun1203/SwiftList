@@ -29,6 +29,30 @@ class MRC_BaseList : UIViewController{
         }
     }
     
+    func loadingProcess(model : MRC_ItemModel,cell : MRC_ItemCell){
+        if model.isOpen ||
+            model.items.count > 0{
+            //  如果已展开，直接交给父类处理
+            //  如果子数组数据 > 0 则表示已加载过数据，直接交给父类处理
+            didSelect_ItemWithModel(model: model, cell: cell)
+            return
+        }
+        //开始加载动画
+        cell.loadingStart()
+        //此处开始请求处理，成功直接调用父类方法，失败取消加载动画即可
+        weak var weakSelf = self
+        DispatchQueue.global().asyncAfter(deadline: DispatchTime.now()+2) {
+            DispatchQueue.main.async {
+                //生成要展示的子层数据
+                model.testAddSubItem(currentTier: model.tier, count: 3)
+                //结束加载动画
+                cell.loadingEnd()
+                //提交父类处理展示数据
+                weakSelf?.didSelect_ItemWithModel(model: model, cell: cell)
+            }
+        }
+    }
+    
     func didSelect_ItemWithModel(model : MRC_ItemModel,cell : MRC_ItemCell){
         //如果当前层是末层提示层,直接返回
         if model.isAlert{
